@@ -5,7 +5,6 @@ const express = require('express');
 const animalRouter = require('./routes/animals');
 const instrumentRouter = require('./routes/instruments');
 const logger = require('./middleware/logger');
-const validator = require('./middleware/validator');
 const notFound = require('./error-handlers/404');
 const errorHandler = require('./error-handlers/500');
 
@@ -27,6 +26,9 @@ app.get('/bad', (req, res, next) => {
   next('bad route');
 });
 
+app.use('*', notFound);
+
+app.use(errorHandler);
 
 function start(){
   app.listen(PORT, () => console.log(`listening on port: ${PORT} `));

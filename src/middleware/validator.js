@@ -2,11 +2,11 @@
 
 module.exports = (req, res, next) => {
 
-  if (req.query.name){
+  if (req.query.animal){
     next();
-  }
-
-  else {
+  } else if (req.query.instrument){
+    next();
+  } else {
     next('Incorrect query');
   }
 };
