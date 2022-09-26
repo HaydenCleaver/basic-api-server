@@ -1,12 +1,10 @@
 'use strict';
 
 module.exports = (req, res, next) => {
-
-  if (req.query.animal){
-    next();
-  } else if (req.query.instrument){
+  let { name } = req.body;
+  if (name){
     next();
   } else {
-    next('Incorrect query');
+    next('Name property was not defined');
   }
 };

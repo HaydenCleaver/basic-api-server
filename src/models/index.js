@@ -17,5 +17,9 @@ const sequelizeDatabase = new Sequelize(DATABASE_URL);
 const AnimalModel = animalSchema(sequelizeDatabase, DataTypes);
 const InstrumentModel = instrumentSchema(sequelizeDatabase, DataTypes);
 
-module.exports = {sequelizeDatabase, AnimalModel};
-module.exports = {sequelizeDatabase, InstrumentModel};
+
+module.exports = {
+  sequelizeDatabase,
+  InstrumentModel,
+  AnimalModel,
+};
